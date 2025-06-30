@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot WebSocket State Monitor</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🤖 Robot State Monitor</h1>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-indicator" id="statusIndicator"></span>
+                <span class="status-text" id="statusText">Connecting...</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="state-grid">
+                <div class="state-card" id="stateA">
+                    <div class="state-label">Value A</div>
+                    <div class="state-value" id="valueA">--</div>
+                    <div class="state-bar">
+                        <div class="state-progress" id="progressA"></div>
+                    </div>
+                </div>
+
+                <div class="state-card" id="stateB">
+                    <div class="state-label">Value B</div>
+                    <div class="state-value" id="valueB">--</div>
+                    <div class="state-bar">
+                        <div class="state-progress" id="progressB"></div>
+                    </div>
+                </div>
+
+                <div class="state-card" id="stateC">
+                    <div class="state-label">Value C</div>
+                    <div class="state-value" id="valueC">--</div>
+                    <div class="state-bar">
+                        <div class="state-progress" id="progressC"></div>
+                    </div>
+                </div>
+
+                <div class="state-card" id="stateD">
+                    <div class="state-label">Value D</div>
+                    <div class="state-value" id="valueD">--</div>
+                    <div class="state-bar">
+                        <div class="state-progress" id="progressD"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-card">
+                    <h3>Connection Info</h3>
+                    <p><strong>Update Rate:</strong> 100ms</p>
+                    <p><strong>Last Update:</strong> <span id="lastUpdate">Never</span></p>
+                    <p><strong>Messages Received:</strong> <span id="messageCount">0</span></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Raw Data</h3>
+                    <pre id="rawData" class="raw-data">Waiting for data...</pre>
+                </div>
+            </div>
+
+            <div class="three-d-section">
+                <div class="three-d-container">
+                    <h3>3D State Visualization</h3>
+                    <div class="three-d-controls">
+                        <button id="resetCamera" class="control-btn">Reset Camera</button>
+                        <button id="toggleRotation" class="control-btn">Toggle Rotation</button>
+                        <div class="control-info">
+                            <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
+                        </div>
+                    </div>
+                    <div id="threeContainer" class="three-d-canvas"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html> 
