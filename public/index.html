@@ -13,12 +13,12 @@
             <h1>🤖 Robot State Monitor</h1>
             <div class="connection-status" id="connectionStatus">
                 <span class="status-indicator" id="statusIndicator"></span>
-                <span class="status-text" id="statusText">Connecting...</span>
+                <span class="status-text" id="statusText">connecting...</span>
             </div>
         </header>
 
         <main class="main-content">
-            <div class="state-grid">
+            <!-- <div class="state-grid">
                 <div class="state-card" id="stateA">
                     <div class="state-label">Value A</div>
                     <div class="state-value" id="valueA">--</div>
@@ -50,11 +50,131 @@
                         <div class="state-progress" id="progressD"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <div class="flex-row">
+                <div id="free" class="three-d-section">
+                    <div class="three-d-container">
+                        <h3 id="title">Perspective View</h3>
+                        <div id="threeContainer" class="three-d-canvas"></div>
+                        <div id="robot3DViewPanel" class="three-d-controls">
+                            <button id="resetCamera" class="control-btn">Reset Camera</button>
+                            <div class="control-info">
+                                <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Control Panel for Robot Joints -->
+                <div id="robotControlPanel" class="control-panel-section">
+                    <div class="control-panel-container">
+                        <h3>Robot Control Panel</h3>
 
+                        <div id="robotControlForm" autocomplete="off">
+                            <div class="control-input-row">
+                                <label></label>
+                                <label>Target</label>
+                                <label>Current</label>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="liftInput">Lift</label>
+                                <input type="number" id="liftInput" name="lift" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="liftCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="swingInput">Swing</label>
+                                <input type="number" id="swingInput" name="swing" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="swingCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="elbowInput">Elbow</label>
+                                <input type="number" id="elbowInput" name="elbow" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="elbowCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="wristInput">Wrist</label>
+                                <input type="number" id="wristInput" name="wrist" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="wristCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="gripperInput">Gripper</label>
+                                <input type="number" id="gripperInput" name="gripper" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="gripperCurrent">0</span>
+                            </div>
+                            
+                        </div>
+                        <div class="control-panel-buttons">
+                            <button id="submitButton" type="submit" class="control-btn">Submit</button>
+                            <button id="resetButton" type="reset" class="control-btn control-btn-secondary">Reset</button>
+                        </div>
+
+                        <div id="coordinateControlForm" autocomplete="off">
+                            <div class="control-input-row">
+                                <label></label>
+                                <label>Target</label>
+                                <label>Current</label>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="xInput">X</label>
+                                <input type="number" id="xInput" name="x" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="xCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="yInput">Y</label>
+                                <input type="number" id="yInput" name="y" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="yCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="zInput">Z</label>
+                                <input type="number" id="zInput" name="z" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="zCurrent">0</span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="angleInput">Angle</label>
+                                <input type="number" id="angleInput" name="angle" min="0" max="100" step="1" required></input>
+                                <span class="target-state" id="angleCurrent">0</span>
+                            </div>
+
+                            <div class="control-panel-buttons">
+                                <button id="submitButton" type="submit" class="control-btn">Submit</button>
+                                <button id="resetButton" type="reset" class="control-btn control-btn-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="flex-row">
+                <div id="top" class="three-d-section">
+                    <div class="three-d-container">
+                        <h3>Top View</h3>
+                        <div id="threeContainer" class="three-d-canvas"></div>
+                        <div id="robot3DViewPanel" class="three-d-controls">
+                            <button id="resetCamera" class="control-btn">Reset Camera</button>
+                            <div class="control-info">
+                                <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="side" class="three-d-section">
+                    <div class="three-d-container">
+                        <h3>Side View</h3>
+                        <div id="threeContainer" class="three-d-canvas"></div>
+                        <div id="robot3DViewPanel" class="three-d-controls">
+                            <button id="resetCamera" class="control-btn">Reset Camera</button>
+                            <div class="control-info">
+                                <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
             <div class="info-panel">
                 <div class="info-card">
-                    <h3>Connection Info</h3>
+                    <h3>Message Info</h3>
                     <p><strong>Update Rate:</strong> 100ms</p>
                     <p><strong>Last Update:</strong> <span id="lastUpdate">Never</span></p>
                     <p><strong>Messages Received:</strong> <span id="messageCount">0</span></p>
@@ -63,20 +183,6 @@
                 <div class="info-card">
                     <h3>Raw Data</h3>
                     <pre id="rawData" class="raw-data">Waiting for data...</pre>
-                </div>
-            </div>
-
-            <div class="three-d-section">
-                <div class="three-d-container">
-                    <h3>3D State Visualization</h3>
-                    <div class="three-d-controls">
-                        <button id="resetCamera" class="control-btn">Reset Camera</button>
-                        <button id="toggleRotation" class="control-btn">Toggle Rotation</button>
-                        <div class="control-info">
-                            <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
-                        </div>
-                    </div>
-                    <div id="threeContainer" class="three-d-canvas"></div>
                 </div>
             </div>
         </main>
