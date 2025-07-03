@@ -19,5 +19,4 @@ export class ConnectionStatusPanel {
             statusTextElement.textContent = event.detail.status;
         });
     }
-
 }

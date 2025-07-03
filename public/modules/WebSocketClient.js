@@ -1,7 +1,7 @@
 export class WebSocketClient {
     constructor({ url, maxReconnectAttempts = 5, reconnectDelay = 1000 } = {}) {
         this.ws = null;
-        this.url = url || this.getDefaultUrl();
+        this.url = url ?? this.getDefaultUrl();
         this.maxReconnectAttempts = maxReconnectAttempts;
         this.reconnectDelay = reconnectDelay;
         this.reconnectAttempts = 0;
@@ -10,14 +10,13 @@ export class WebSocketClient {
         this.connect();
     }
 
-
     dispatchStatus(status) {
-        const event = new CustomEvent("wsStatus", { detail: { status }});
+        const event = new CustomEvent('wsStatus', { detail: { status } });
         document.dispatchEvent(event);
     }
 
     dispatchMessage(data) {
-        const event = new CustomEvent("wsReceive", { detail: { data }});
+        const event = new CustomEvent('wsReceive', { detail: { data } });
         document.dispatchEvent(event);
     }
 
@@ -35,7 +34,7 @@ export class WebSocketClient {
                 this.connect();
             }
         });
-        
+
         // Handle window focus/blur
         window.addEventListener('focus', () => {
             if (this.ws?.readyState !== WebSocket.OPEN) {
@@ -43,7 +42,7 @@ export class WebSocketClient {
                 this.connect();
             }
         });
-        
+
         // Handle beforeunload
         window.addEventListener('beforeunload', () => {
             if (this.ws) {
@@ -67,7 +66,7 @@ export class WebSocketClient {
             this.ws.onmessage = (event) => {
                 try {
                     const data = JSON.parse(event.data);
-                    this.dispatchMessage(data)
+                    this.dispatchMessage(data);
                 } catch (err) {
                     // TODO(wieger): handle parse errors
                 }
@@ -94,4 +93,4 @@ export class WebSocketClient {
             this.dispatchStatus('error');
         }
     }
-} 
+}

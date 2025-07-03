@@ -6,7 +6,7 @@ import { Robot3DViewPanel } from './modules/Robot3DViewPanel.js';
 import { ControlPanel } from './modules/ControlPanel.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    new MessageInfoPanel();    
+    new MessageInfoPanel();
     new ConnectionStatusPanel();
     new RawDataPanel();
     new WebSocketClient();

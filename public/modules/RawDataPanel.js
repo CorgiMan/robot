@@ -4,7 +4,7 @@ export class RawDataPanel {
 
         document.addEventListener('wsReceive', (event) => {
             rawDataEl.textContent = JSON.stringify(event.detail.data, null, 2);
-            
+
             // Heartbeat animation
             rawDataEl.classList.add('raw-data-updated');
             setTimeout(() => {
@@ -12,5 +12,4 @@ export class RawDataPanel {
             }, 300);
         });
     }
-
 }

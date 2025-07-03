@@ -5,7 +5,7 @@ export class MessageInfoPanel {
 
         let messageCount = 0;
         document.addEventListener('wsReceive', (event) => {
-            lastUpdateElement.textContent = new Date().toLocaleTimeString();        
+            lastUpdateElement.textContent = new Date().toLocaleTimeString();
             messageCountElement.textContent = messageCount++;
         });
     }

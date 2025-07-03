@@ -8,8 +8,8 @@ export class Robot3DViewPanel {
 
         this.robotScene = new RobotScene(threeContainerElement, viewId);
 
-        if(resetCameraElement) {
-        resetCameraElement.addEventListener('click', () => {
+        if (resetCameraElement) {
+            resetCameraElement.addEventListener('click', () => {
                 this.robotScene.scene.resetCamera();
             });
         }

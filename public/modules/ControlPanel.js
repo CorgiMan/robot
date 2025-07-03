@@ -26,7 +26,6 @@ export class ControlPanel {
         this.kinematicInversionButton = document.getElementById('kinematicInversionButton');
         this.kinematicInversionResetButton = document.getElementById('kinematicInversionResetButton');
 
-
         this.addWSReceiveListener();
         this.addDirectInputListeners();
         this.addKinematicInversionListeners();
@@ -38,13 +37,13 @@ export class ControlPanel {
             const state = event.detail.data;
             this.state = state;
 
-            if(state.targetsUpdated) {
+            if (state.targetsUpdated) {
                 console.log(state);
                 const setValueIfEmpty = (input, value) => {
-                    if(input !== document.activeElement && input.value === '') {
+                    if (input !== document.activeElement && input.value === '') {
                         input.value = value.toFixed(1);
                     }
-                }
+                };
                 setValueIfEmpty(this.liftInput, state.liftTarget);
                 setValueIfEmpty(this.swingInput, state.swingTarget);
                 setValueIfEmpty(this.elbowInput, state.elbowTarget);
@@ -52,16 +51,16 @@ export class ControlPanel {
                 setValueIfEmpty(this.gripperInput, state.gripperTarget);
             }
 
-            if(this.liftCurrent.textContent !== state.lift.toFixed(1)) this.liftCurrent.textContent = state.lift.toFixed(1);
-            if(this.swingCurrent.textContent !== state.swing.toFixed(1)) this.swingCurrent.textContent = state.swing.toFixed(1);
-            if(this.elbowCurrent.textContent !== state.elbow.toFixed(1)) this.elbowCurrent.textContent = state.elbow.toFixed(1);
-            if(this.wristCurrent.textContent !== state.wrist.toFixed(1)) this.wristCurrent.textContent = state.wrist.toFixed(1);
-            if(this.gripperCurrent.textContent !== state.gripper.toFixed(1)) this.gripperCurrent.textContent = state.gripper.toFixed(1);
+            if (this.liftCurrent.textContent !== state.lift.toFixed(1)) this.liftCurrent.textContent = state.lift.toFixed(1);
+            if (this.swingCurrent.textContent !== state.swing.toFixed(1)) this.swingCurrent.textContent = state.swing.toFixed(1);
+            if (this.elbowCurrent.textContent !== state.elbow.toFixed(1)) this.elbowCurrent.textContent = state.elbow.toFixed(1);
+            if (this.wristCurrent.textContent !== state.wrist.toFixed(1)) this.wristCurrent.textContent = state.wrist.toFixed(1);
+            if (this.gripperCurrent.textContent !== state.gripper.toFixed(1)) this.gripperCurrent.textContent = state.gripper.toFixed(1);
 
-            if(this.xCurrent.textContent !== state.x.toFixed(1)) this.xCurrent.textContent = state.x.toFixed(1);
-            if(this.zCurrent.textContent !== state.z.toFixed(1)) this.zCurrent.textContent = state.z.toFixed(1);
-            if(this.heightCurrent.textContent !== state.height.toFixed(1)) this.heightCurrent.textContent = state.height.toFixed(1);
-            if(this.angleCurrent.textContent !== state.angle.toFixed(1)) this.angleCurrent.textContent = state.angle.toFixed(1);
+            if (this.xCurrent.textContent !== state.x.toFixed(1)) this.xCurrent.textContent = state.x.toFixed(1);
+            if (this.zCurrent.textContent !== state.z.toFixed(1)) this.zCurrent.textContent = state.z.toFixed(1);
+            if (this.heightCurrent.textContent !== state.height.toFixed(1)) this.heightCurrent.textContent = state.height.toFixed(1);
+            if (this.angleCurrent.textContent !== state.angle.toFixed(1)) this.angleCurrent.textContent = state.angle.toFixed(1);
         });
     }
 
@@ -85,7 +84,7 @@ export class ControlPanel {
             this.wristInput.value = '';
             this.gripperInput.value = '';
 
-            const event = new CustomEvent("wsSend", { detail: { data: values }});
+            const event = new CustomEvent('wsSend', { detail: { data: values } });
             document.dispatchEvent(event);
         });
 
@@ -115,7 +114,7 @@ export class ControlPanel {
             this.wristInput.value = '';
             this.gripperInput.value = '';
 
-            const event = new CustomEvent("wsSend", { detail: { data: values }});
+            const event = new CustomEvent('wsSend', { detail: { data: values } });
             document.dispatchEvent(event);
         });
 
@@ -144,4 +143,4 @@ export class ControlPanel {
         addInputFocusBlur(this.wristInput, 'wristTarget');
         addInputFocusBlur(this.gripperInput, 'gripperTarget');
     }
-} 
+}
