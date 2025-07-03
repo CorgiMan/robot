@@ -19,8 +19,7 @@ I decided against using TypeScript or any frontend framework both as a challenge
 - Input validation on frontend and backend, rx and tx
 - Add Actuator object to make code less repetitive
 - Add Configuration file for robot dimensions, max speeds, accelerations, etc.
-- Movement is jerky, that might be fine and even better since it only shows state change that actually happened and ar most up to date
-
+- Movement is jerky for low update frequencies, this has the advantage that you always see a state that the robot was actually in, but for a more pleasent experience it's possible to interpolate between states.
 
 
 ## Installation
