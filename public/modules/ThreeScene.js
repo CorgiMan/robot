@@ -44,7 +44,7 @@ export class ThreeScene {
 
     setOrthographicView() {
         const aspect = this.container.clientWidth / this.container.clientHeight;
-        const frustumSize = 2500;
+        const frustumSize = 3000;
         this.camera = new THREE.OrthographicCamera(
             frustumSize * aspect / -2,
             frustumSize * aspect / 2,

@@ -77,27 +77,27 @@
                             </div>
                             <div class="control-input-row">
                                 <label for="liftInput">Lift</label>
-                                <input type="number" id="liftInput" name="lift" min="0" max="100" step="1" required></input>
+                                <input id="liftInput" name="lift" min="0" max="100" step="1" required></input>
                                 <span class="target-state" id="liftCurrent">0</span>
                             </div>
                             <div class="control-input-row">
                                 <label for="swingInput">Swing</label>
-                                <input type="number" id="swingInput" name="swing" min="0" max="100" step="1" required></input>
+                                <input id="swingInput" name="swing" min="0" max="100" step="1" required></input>
                                 <span class="target-state" id="swingCurrent">0</span>
                             </div>
                             <div class="control-input-row">
                                 <label for="elbowInput">Elbow</label>
-                                <input type="number" id="elbowInput" name="elbow" min="0" max="100" step="1" required></input>
+                                <input id="elbowInput" name="elbow" min="0" max="100" step="1" required></input>
                                 <span class="target-state" id="elbowCurrent">0</span>
                             </div>
                             <div class="control-input-row">
                                 <label for="wristInput">Wrist</label>
-                                <input type="number" id="wristInput" name="wrist" min="0" max="100" step="1" required></input>
+                                <input id="wristInput" name="wrist" min="0" max="100" step="1" required></input>
                                 <span class="target-state" id="wristCurrent">0</span>
                             </div>
                             <div class="control-input-row">
                                 <label for="gripperInput">Gripper</label>
-                                <input type="number" id="gripperInput" name="gripper" min="0" max="100" step="1" required></input>
+                                <input id="gripperInput" name="gripper" min="0" max="100" step="1" required></input>
                                 <span class="target-state" id="gripperCurrent">0</span>
                             </div>
                             
@@ -115,33 +115,32 @@
                             </div>
                             <div class="control-input-row">
                                 <label for="xInput">X</label>
-                                <input type="number" id="xInput" name="x" min="0" max="100" step="1" required></input>
-                                <span class="target-state" id="xCurrent">0</span>
-                            </div>
-                            <div class="control-input-row">
-                                <label for="yInput">Y</label>
-                                <input type="number" id="yInput" name="y" min="0" max="100" step="1" required></input>
-                                <span class="target-state" id="yCurrent">0</span>
+                                <input id="xInput" name="x" min="0" max="100" step="1" required value="245"></input>
+                                <span class="target-state" id="xCurrent"></span>
                             </div>
                             <div class="control-input-row">
                                 <label for="zInput">Z</label>
-                                <input type="number" id="zInput" name="z" min="0" max="100" step="1" required></input>
-                                <span class="target-state" id="zCurrent">0</span>
+                                <input id="zInput" name="z" min="0" max="100" step="1" required value="1035.6"></input>
+                                <span class="target-state" id="zCurrent"></span>
+                            </div>
+                            <div class="control-input-row">
+                                <label for="heightInput">Height</label>
+                                <input id="heightInput" name="height" min="0" max="100" step="1" required value="100"></input>
+                                <span class="target-state" id="heightCurrent"></span>
                             </div>
                             <div class="control-input-row">
                                 <label for="angleInput">Angle</label>
-                                <input type="number" id="angleInput" name="angle" min="0" max="100" step="1" required></input>
-                                <span class="target-state" id="angleCurrent">0</span>
+                                <input id="angleInput" name="angle" min="0" max="100" step="1" required value="150"></input>
+                                <span class="target-state" id="angleCurrent"></span>
                             </div>
 
                             <div class="control-panel-buttons">
-                                <button id="submitButton" type="submit" class="control-btn">Submit</button>
-                                <button id="resetButton" type="reset" class="control-btn control-btn-secondary">Reset</button>
+                                <button id="kinematicInversionButton" type="submit" class="control-btn">Submit</button>
+                                <button id="kinematicInversionResetButton" type="reset" class="control-btn control-btn-secondary">Reset</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             
             <div class="flex-row">
@@ -149,12 +148,7 @@
                     <div class="three-d-container">
                         <h3>Top View</h3>
                         <div id="threeContainer" class="three-d-canvas"></div>
-                        <div id="robot3DViewPanel" class="three-d-controls">
-                            <button id="resetCamera" class="control-btn">Reset Camera</button>
-                            <div class="control-info">
-                                <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
-                            </div>
-                        </div>
+                        <div id="robot3DViewPanel" class="three-d-controls"></div>
                     </div>
                 </div>
 
@@ -162,12 +156,7 @@
                     <div class="three-d-container">
                         <h3>Side View</h3>
                         <div id="threeContainer" class="three-d-canvas"></div>
-                        <div id="robot3DViewPanel" class="three-d-controls">
-                            <button id="resetCamera" class="control-btn">Reset Camera</button>
-                            <div class="control-info">
-                                <span>Mouse: Rotate | Scroll: Zoom | Right-click: Pan</span>
-                            </div>
-                        </div>
+                        <div id="robot3DViewPanel" class="three-d-controls"></div>
                     </div>
                 </div>
             </div>

@@ -16,9 +16,7 @@ export class RobotScene {
 
         this.addWSReceiveListener();
     }
-
-
-  
+    
     addWSReceiveListener() {
         document.addEventListener('wsReceive', (event) => {
             const s = event.detail.data;
@@ -31,7 +29,7 @@ export class RobotScene {
                 this.scene.scene.add(this.currentRobot.getObject3D());
             }
             if(this.targetRobot === null) {
-                this.targetRobot = new RobotGeometry(0xff0000, 0.4);
+                this.targetRobot = new RobotGeometry(0x77ff77, 0.2);
                 this.scene.scene.add(this.targetRobot.getObject3D());
             }
             if(this.targetRobot !== null && distance(current, target) < 1) {
@@ -42,7 +40,7 @@ export class RobotScene {
             this.currentRobot.position(current);
             if(this.targetRobot !== null) this.targetRobot.position(target);
 
-            this.scene.animate();
+            // this.scene.animate();
         });
     }
 }
